@@ -1,0 +1,649 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #030509;
+
+    --cyan: #00f5ff;
+    --blue: #008cff;
+    --purple: #8b5cf6;
+    --pink: #ff2bd6;
+
+    --white: #f5ffff;
+    --muted: #82909d;
+
+    --card: rgba(7, 13, 22, 0.82);
+    --border: rgba(0, 245, 255, 0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(0, 140, 255, 0.09),
+            transparent 35%
+        ),
+        #030509;
+
+    color: var(--white);
+
+    font-family: "Space Grotesk", sans-serif;
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+
+/* Neon glow circles */
+
+.glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.45;
+}
+
+.glow-one {
+    width: 450px;
+    height: 450px;
+
+    left: -160px;
+    top: -150px;
+
+    background: var(--cyan);
+}
+
+.glow-two {
+    width: 500px;
+    height: 500px;
+
+    right: -180px;
+    bottom: -220px;
+
+    background: var(--purple);
+}
+
+
+/* Cyber grid */
+
+.grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 245, 255, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 245, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 25%,
+        black 75%,
+        transparent
+    );
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.card {
+    position: relative;
+
+    width: min(850px, 100%);
+
+    padding: 70px 65px 45px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(13, 25, 40, 0.88),
+            rgba(3, 7, 13, 0.94)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 0 40px rgba(0, 245, 255, 0.06),
+        0 0 100px rgba(139, 92, 246, 0.05),
+        inset 0 0 40px rgba(0, 245, 255, 0.02);
+
+    animation: cardAppear 1s ease forwards;
+}
+
+
+/* Top neon line */
+
+.top-line {
+    position: absolute;
+
+    top: 0;
+    left: 12%;
+
+    width: 76%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cyan),
+        var(--purple),
+        var(--pink),
+        transparent
+    );
+
+    box-shadow:
+        0 0 10px var(--cyan),
+        0 0 25px var(--purple);
+
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 15px;
+
+    border: 1px solid rgba(0, 245, 255, 0.2);
+
+    border-radius: 50px;
+
+    color: #9eeff3;
+
+    background: rgba(0, 245, 255, 0.04);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 0 15px rgba(0, 245, 255, 0.05);
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    background: var(--cyan);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 7px var(--cyan),
+        0 0 15px var(--cyan);
+
+    animation: pulse 1.5s infinite;
+}
+
+
+/* =========================================
+   CODE ICON
+========================================= */
+
+.icon {
+    width: 74px;
+    height: 74px;
+
+    margin: 28px auto 22px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 20px;
+
+    color: var(--cyan);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 245, 255, 0.09),
+            rgba(139, 92, 246, 0.09)
+        );
+
+    border: 1px solid rgba(0, 245, 255, 0.25);
+
+    box-shadow:
+        0 0 20px rgba(0, 245, 255, 0.12),
+        inset 0 0 20px rgba(0, 245, 255, 0.04);
+
+    text-shadow:
+        0 0 10px var(--cyan),
+        0 0 25px var(--cyan);
+}
+
+
+/* =========================================
+   WELCOME
+========================================= */
+
+.welcome-label {
+    color: var(--purple);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 10px rgba(139, 92, 246, 0.7);
+}
+
+
+/* =========================================
+   NAME
+========================================= */
+
+h1 {
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(40px, 7vw, 76px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+
+    letter-spacing: -2px;
+
+    color: white;
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.25),
+        0 0 35px rgba(0, 245, 255, 0.12);
+}
+
+h1 span {
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            #52cfff,
+            var(--purple),
+            var(--pink)
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    filter:
+        drop-shadow(0 0 12px rgba(0, 245, 255, 0.2));
+}
+
+
+/* =========================================
+   DEPARTMENT
+========================================= */
+
+.department {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    color: var(--cyan);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 10px rgba(0, 245, 255, 0.55);
+}
+
+.department span {
+    width: 45px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--cyan)
+        );
+
+    box-shadow:
+        0 0 8px var(--cyan);
+}
+
+.department span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            transparent
+        );
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+    max-width: 620px;
+
+    margin: 27px auto 0;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    font-weight: 400;
+}
+
+.message strong {
+    color: #dffeff;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 10px rgba(0, 245, 255, 0.25);
+}
+
+
+/* =========================================
+   TECH TAGS
+========================================= */
+
+.tech-tags {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 32px;
+}
+
+.tech-tags span {
+    padding: 7px 12px;
+
+    border: 1px solid rgba(139, 92, 246, 0.25);
+
+    border-radius: 7px;
+
+    color: #a9a1d9;
+
+    background: rgba(139, 92, 246, 0.05);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s ease;
+}
+
+.tech-tags span:hover {
+    color: var(--cyan);
+
+    border-color: var(--cyan);
+
+    background: rgba(0, 245, 255, 0.06);
+
+    box-shadow:
+        0 0 15px rgba(0, 245, 255, 0.15);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 45px;
+
+    color: #46535f;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.footer .line {
+    height: 1px;
+
+    flex: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 245, 255, 0.25),
+            rgba(139, 92, 246, 0.08)
+        );
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes pulse {
+
+    0% {
+        opacity: 1;
+        box-shadow:
+            0 0 7px var(--cyan),
+            0 0 15px var(--cyan);
+    }
+
+    50% {
+        opacity: .4;
+        box-shadow:
+            0 0 2px var(--cyan);
+    }
+
+    100% {
+        opacity: 1;
+        box-shadow:
+            0 0 7px var(--cyan),
+            0 0 15px var(--cyan);
+    }
+
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 650px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .hero {
+        padding: 18px;
+    }
+
+    .card {
+        padding: 50px 25px 30px;
+
+        border-radius: 22px;
+    }
+
+    .status {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    .icon {
+        width: 62px;
+        height: 62px;
+
+        font-size: 21px;
+
+        margin-top: 23px;
+    }
+
+    .welcome-label {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    h1 {
+        font-size: 37px;
+        letter-spacing: -1.5px;
+    }
+
+    .department {
+        font-size: 8px;
+        letter-spacing: 2px;
+
+        gap: 8px;
+    }
+
+    .department span {
+        width: 25px;
+    }
+
+    .message {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .footer {
+        margin-top: 35px;
+    }
+
+}
+
+
+/* =========================================
+   EXTRA NEON VIGNETTE
+========================================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 35%,
+            rgba(0, 0, 0, 0.55) 100%
+        );
+}
